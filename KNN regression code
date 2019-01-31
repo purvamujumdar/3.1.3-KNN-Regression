@@ -1,0 +1,11 @@
+from sklearn import neighbors
+
+# Build our model.
+
+X = music[['loudness','duration']]
+Y = music.bpm
+knn = neighbors.KNeighborsRegressor(n_neighbors=10)
+# Trailing underscores are a common convention for a prediction.
+knn.fit(X,Y)
+y_ = knn.predict([20,200])
+print(y_)
